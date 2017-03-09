@@ -19,3 +19,20 @@ node {
         ]]
     ])
 }
+node {
+    checkout([
+        $class: 'GitSCM',
+        branches: [[name: env.BRANCH_NAME]],
+        browser: [
+            $class: 'GithubWeb',
+            repoUrl: "https://github.com/${teamName}/${repoName}.git"
+        ],
+        doGenerateSubmoduleConfigurations: false,
+        extensions: [[$class: 'CleanBeforeCheckout']],
+        submoduleCfg: [],
+        userRemoteConfigs: [[
+            name: 'upstream',
+            url: "https://github.com/${teamName}/${repoName}.git"
+        ]]
+    ])
+}
