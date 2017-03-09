@@ -14,9 +14,8 @@ node {
         extensions: [[$class: 'CleanBeforeCheckout']],
         submoduleCfg: [],
         userRemoteConfigs: [[
-            credentialsId: 'jenkins_github_ssh',
             name: 'origin',
-            url: "git@github.com:${teamName}/${repoName}.git"
+            url: "https://github.com/${teamName}/${repoName}.git"
         ]]
     ])
 }
